@@ -212,7 +212,7 @@ footer ul{columns:2;padding-left:18px}
       </div>
     </div>
     <figure class="photo has-img media" data-slot="hero">
-      <img src="iceman.jpg" alt="Caleb Williams in a white Bears uniform with arms crossed over his chest as snow falls">
+      <img src="iceman.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/jasonschoenleber/Caleb-Williams-Tribute@main/iceman.jpg'" alt="Caleb Williams in a white Bears uniform with arms crossed over his chest as snow falls">
     </figure>
   </div>
 </header>
@@ -329,8 +329,8 @@ footer ul{columns:2;padding-left:18px}
     </article>
   </div>
   <div class="photos-row">
-    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="DJ Moore catch highlight"><source src="dj_catch.mp4" type="video/mp4"></video></figure>
-    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="Williams touchdown play"><source src="CL_TD.mp4" type="video/mp4"></video></figure>
+    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="DJ Moore catch highlight"><source src="dj_catch.mp4" type="video/mp4"><source src="https://cdn.jsdelivr.net/gh/jasonschoenleber/Caleb-Williams-Tribute@main/dj_catch.mp4" type="video/mp4"></video></figure>
+    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="Williams touchdown play"><source src="CL_TD.mp4" type="video/mp4"><source src="https://cdn.jsdelivr.net/gh/jasonschoenleber/Caleb-Williams-Tribute@main/CL_TD.mp4" type="video/mp4"></video></figure>
   </div>
 </div></section>
 
@@ -681,5 +681,8 @@ $('#ytLoop').addEventListener('click', e => {
 });
 setTimeout(() => { if (!yt) ytMsg('Clips are offline', 'The YouTube player couldn\'t be reached. Check your internet connection and reload the page.'); }, 10000);
 (function loadYT(){ const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s); })();
+
+/* ---------- Make sure the looping clips start ---------- */
+$$('video[autoplay]').forEach(v => { v.muted = true; const go = () => v.play().catch(() => {}); v.addEventListener('canplay', go, {once:true}); go(); });
 </script>
 </html>
