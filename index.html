@@ -1,0 +1,656 @@
+<!doctype html>
+<!-- Caleb Williams tribute page. Unofficial fan page, not affiliated with the Chicago Bears or the NFL. -->
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caleb Williams: The Chicago Record Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B162A; --panel:#13233D; --line:#23395C;
+  --orange:#C83803; --orange-hi:#F05A1E;
+  --chalk:#E9EDF2; --steel:#8A97AB; --lake:#5B8BC7;
+  --display:"Big Shoulders Display", Impact, sans-serif;
+  --body:"Public Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--orange-hi)}
+:focus-visible{outline:3px solid var(--orange-hi);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--display);line-height:.95;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(44px,6vw,84px);font-weight:900}
+h3{font-size:30px;font-weight:700}
+.lede{max-width:62ch;color:var(--steel);font-size:19px;margin:14px 0 36px}
+section{scroll-margin-top:58px;padding:96px 0;border-top:1px solid var(--line)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(11,22,42,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;align-items:center;height:58px;overflow-x:auto;white-space:nowrap}
+nav b{font-family:var(--display);font-size:26px;font-weight:900;color:var(--orange);margin-right:10px}
+nav a{color:var(--chalk);text-decoration:none;font-size:15px;opacity:.8}
+nav a:hover{opacity:1;color:var(--orange-hi)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:60px 0 80px;border:0;
+  background:repeating-linear-gradient(90deg,transparent 0 119px,rgba(233,237,242,.05) 119px 120px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;position:relative}
+.big18{position:absolute;left:-40px;top:-70px;font-family:var(--display);font-weight:900;font-size:clamp(360px,48vw,640px);
+  line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(200,56,3,.45);pointer-events:none;user-select:none}
+.hero h1{font-size:clamp(64px,10vw,150px);font-weight:900;position:relative}
+.hero h1 span{display:block;color:var(--orange)}
+.hero p{position:relative;max-width:46ch;font-size:20px;margin:22px 0 30px}
+.scoreline{position:relative;display:flex;gap:0;border-top:4px solid var(--orange);width:fit-content}
+.scoreline div{padding:14px 26px 0 0;margin-right:26px;border-right:1px solid var(--line)}
+.scoreline div:last-child{border:0}
+.scoreline strong{display:block;font-family:var(--display);font-size:54px;font-weight:900;line-height:1}
+.scoreline small{color:var(--steel);font-size:14px}
+
+/* photo slots */
+.photo{position:relative;margin:0;background:var(--panel);border:1px solid var(--line);overflow:hidden;cursor:pointer;min-height:220px}
+.photo img,.photo video{width:100%;height:100%;object-fit:cover;display:block}
+.photo.media{cursor:default}
+.hero .photo img{object-position:50% 20%}
+.photos-row .photo:last-child video{position:absolute;inset:0}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;
+  background:repeating-linear-gradient(135deg,var(--panel) 0 14px,#172a48 14px 28px);color:var(--steel);font-size:14px}
+.photo .ph strong{color:var(--chalk);font-family:var(--display);font-size:24px}
+.photo.has-img .ph{display:none}
+.hero .photo{aspect-ratio:4/5;clip-path:polygon(8% 0,100% 0,100% 100%,0 100%,0 8%)}
+figcaption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;font-size:13px;background:linear-gradient(transparent,rgba(11,22,42,.9))}
+
+/* toggles */
+.toggle{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.toggle button{font:600 15px var(--body);color:var(--chalk);background:transparent;border:1px solid var(--line);padding:9px 16px;border-radius:40px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#fff}
+.toggle button:hover{border-color:var(--orange-hi)}
+
+/* the leap */
+.leap{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}
+.leap div{padding:22px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.leap strong{display:block;font-family:var(--display);font-size:52px;font-weight:900;line-height:1;transition:color .3s}
+.leap small{color:var(--steel)}
+.leap .up strong{color:var(--orange-hi)}
+.leap-note{margin-top:22px;max-width:70ch}
+
+/* record book */
+.records{list-style:none;padding:0;margin:0;columns:2;column-gap:48px}
+.records li{break-inside:avoid;padding:18px 0 18px 22px;border-bottom:1px solid var(--line);position:relative}
+.records li::before{content:"";position:absolute;left:0;top:26px;width:10px;height:3px;background:var(--orange)}
+.records strong{font-family:var(--display);font-size:34px;font-weight:900;line-height:1;margin-right:8px}
+.records .tag{font-size:12px;color:var(--lake);border:1px solid var(--line);padding:1px 8px;border-radius:20px;white-space:nowrap}
+.records p{margin:4px 0 0;font-size:15px;color:#C5CCD6}
+.records li[hidden]{display:none}
+
+/* speed */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.gauge svg{width:100%;max-width:520px;display:block}
+#needle{transition:transform 1.1s cubic-bezier(.2,.8,.2,1);transform-origin:260px 260px}
+.gauge-read{font-family:var(--display);font-size:88px;font-weight:900;line-height:1;margin-top:-10px}
+.gauge-read small{font-size:30px;color:var(--steel)}
+.bars{margin-top:8px}
+.bar{display:grid;grid-template-columns:150px 1fr 40px;gap:12px;align-items:center;margin:12px 0;font-size:15px}
+.bar i{display:block;height:26px;background:var(--line);position:relative}
+.bar i b{position:absolute;inset:0 auto 0 0;background:var(--steel)}
+.bar.me i b{background:var(--orange)}
+.bar.me{font-weight:700}
+.versus{display:flex;align-items:end;gap:18px;margin:26px 0 0}
+.versus div{text-align:center}
+.versus span{display:block;width:90px;background:var(--orange);margin:0 auto 8px}
+.versus .them span{background:var(--steel)}
+.versus strong{font-family:var(--display);font-size:40px;font-weight:900;line-height:1}
+
+/* field */
+.field{background:#1E4D2B;border:1px solid var(--line);position:relative;padding:0}
+.field svg{width:100%;display:block}
+.throw-detail{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:26px}
+.throw-detail strong{font-family:var(--display);font-size:96px;font-weight:900;line-height:.9;color:var(--orange-hi)}
+.throw-detail strong small{font-size:32px;color:var(--steel)}
+.arc{fill:none;stroke:rgba(255,255,255,.35);stroke-width:3;stroke-dasharray:6 8}
+.arc.on{stroke:var(--orange-hi);stroke-width:5;stroke-dasharray:none}
+
+/* improbable */
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;max-width:360px}
+.dots span{aspect-ratio:1;border-radius:50%;background:var(--line);transition:background .25s}
+.dots span.hit{background:var(--orange-hi)}
+.prob{font-family:var(--display);font-size:110px;font-weight:900;line-height:.9}
+
+/* clutch */
+.clutch{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0;border-top:4px solid var(--orange)}
+.clutch article{padding:26px 26px 26px 0;margin-right:26px;border-right:1px solid var(--line)}
+.clutch article:last-child{border:0;margin:0}
+.clutch .wp{font-family:var(--display);font-size:80px;font-weight:900;line-height:1}
+.wpbar{height:10px;background:var(--line);margin:14px 0;position:relative}
+.wpbar b{position:absolute;inset:0 auto 0 0;background:var(--orange)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;counter-reset:t;border-left:3px solid var(--orange);margin-left:10px}
+.timeline li{counter-increment:t;padding:0 0 30px 34px;position:relative;max-width:720px}
+.timeline li::before{content:counter(t);position:absolute;left:-20px;top:0;width:36px;height:36px;border-radius:50%;background:var(--navy);border:3px solid var(--orange);
+  font-family:var(--display);font-weight:900;display:grid;place-items:center;font-size:18px}
+.timeline time{color:var(--orange-hi);font-weight:700;font-size:14px}
+.timeline h3{font-size:28px;margin:2px 0 4px}
+.timeline p{margin:0;color:#C5CCD6}
+.timeline button{margin-top:6px;background:none;border:0;color:var(--lake);font:600 14px var(--body);cursor:pointer;padding:0}
+.timeline .more{display:none;margin-top:8px}
+.timeline li.open .more{display:block}
+
+/* honors + quotes */
+.honors{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.honors h3{color:var(--orange-hi);margin-bottom:6px}
+.honors p{margin:0;color:#C5CCD6}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:56px 64px}
+blockquote{margin:0;font-family:var(--display);font-size:clamp(34px,4vw,50px);font-weight:700;line-height:1.02}
+blockquote cite{display:block;margin-top:14px;font:500 15px var(--body);color:var(--steel);font-style:normal}
+.photos-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin:48px 0 0}
+.photos-row .photo{aspect-ratio:16/9}
+.photos-row .photo:last-child{aspect-ratio:auto}
+
+footer{padding:60px 0 90px;border-top:1px solid var(--line);color:var(--steel);font-size:14px}
+footer ul{columns:2;padding-left:18px}
+.honest{background:var(--panel);padding:24px 28px;border-left:4px solid var(--lake);max-width:780px;margin-top:40px}
+
+
+/* watch */
+.theater{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:48px;align-items:start}
+.screen{position:relative;aspect-ratio:9/16;max-height:78vh;background:#000;border:1px solid var(--line);border-top:4px solid var(--orange)}
+.screen iframe,#ytPlayer{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-msg{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:28px;background:var(--panel);font-size:15px}
+.yt-msg[hidden]{display:none}
+.yt-msg strong{font-family:var(--display);font-size:30px;margin-bottom:8px}
+.now small{display:block;color:var(--steel)}
+.now h3{font-size:clamp(28px,3vw,40px);margin:4px 0 20px;min-height:1em}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.controls button{font:600 15px var(--body);color:var(--chalk);background:transparent;border:1px solid var(--line);padding:10px 18px;border-radius:40px;cursor:pointer}
+.controls button:hover{border-color:var(--orange-hi)}
+.controls button.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.controls button[aria-pressed="true"]{border-color:var(--orange-hi);color:var(--orange-hi)}
+.reel{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;max-height:520px;overflow-y:auto;padding-right:4px}
+.reel button{display:block;width:100%;padding:0;border:2px solid transparent;background:var(--panel);cursor:pointer;position:relative;aspect-ratio:9/14;overflow:hidden}
+.reel img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75}
+.reel button:hover img,.reel button[aria-current="true"] img{opacity:1}
+.reel button[aria-current="true"]{border-color:var(--orange-hi)}
+.reel span{position:absolute;left:6px;bottom:4px;font-family:var(--display);font-weight:900;font-size:22px;text-shadow:0 1px 6px #000}
+@media (max-width:860px){.theater{grid-template-columns:1fr}.screen{max-height:none;max-width:420px;margin:0 auto;width:100%}}
+@media (max-width:860px){
+  .hero .wrap,.split,.quotes,.honors,.clutch{grid-template-columns:1fr}
+  .leap{grid-template-columns:repeat(2,1fr)}
+  .records,footer ul{columns:1}
+  .clutch article{border-right:0;border-bottom:1px solid var(--line);margin:0}
+  .photos-row{grid-template-columns:1fr}
+  .throw-detail{grid-template-columns:1fr}
+  .big18{font-size:360px;left:-30px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<nav aria-label="Sections"><div class="wrap">
+  <b>18</b>
+  <a href="#leap">The leap</a><a href="#records">Record book</a><a href="#speed">Speed</a><a href="#arm">Arm</a>
+  <a href="#improbable">Improbable</a><a href="#clutch">Clutch</a><a href="#watch">Watch</a><a href="#timeline">Timeline</a><a href="#honors">Honors</a>
+</div></nav>
+
+<header class="hero">
+  <div class="big18" aria-hidden="true">18</div>
+  <div class="wrap">
+    <div>
+      <h1>Caleb Williams <span>rewrote Chicago.</span></h1>
+      <p>From the NFL's last-ranked offense in 2024 to 59 points in the 2026 opener. Every record, clutch throw and Next Gen Stats moment since the Bears took him first overall.</p>
+      <div class="scoreline">
+        <div><strong>3,942</strong><small>Bears single-season passing record</small></div>
+        <div><strong>1.2%</strong><small>Lowest career INT rate in NFL history*</small></div>
+        <div><strong>59</strong><small>Points in the 2026 opener</small></div>
+      </div>
+    </div>
+    <figure class="photo has-img media" data-slot="hero">
+      <img src="assets/iceman.jpg" alt="Caleb Williams in a white Bears uniform with arms crossed over his chest as snow falls">
+    </figure>
+  </div>
+</header>
+
+<main>
+<section id="leap"><div class="wrap">
+  <h2>The leap</h2>
+  <p class="lede">Pick a season. The 2024 offense finished last in the league in total yards. One year with Ben Johnson changed almost everything.</p>
+  <div class="toggle" role="group" aria-label="Season">
+    <button data-season="2024" aria-pressed="false">2024 rookie</button>
+    <button data-season="2025" aria-pressed="true">2025 breakout</button>
+    <button data-season="2026" aria-pressed="false">2026 Week 1</button>
+  </div>
+  <div class="leap" id="leapGrid" aria-live="polite"></div>
+  <p class="leap-note" id="leapNote"></p>
+</div></section>
+
+<section id="records"><div class="wrap">
+  <h2>The record book</h2>
+  <p class="lede">Franchise marks, NFL history, playoff records and tracking-data firsts. Filter to what you want to see.</p>
+  <div class="toggle" role="group" aria-label="Record type" id="recFilter">
+    <button data-f="all" aria-pressed="true">All</button>
+    <button data-f="bears" aria-pressed="false">Bears history</button>
+    <button data-f="nfl" aria-pressed="false">NFL history</button>
+    <button data-f="playoffs" aria-pressed="false">Playoffs</button>
+    <button data-f="ngs" aria-pressed="false">Next Gen Stats</button>
+  </div>
+  <ul class="records" id="recList"></ul>
+</div></section>
+
+<section id="speed"><div class="wrap">
+  <h2>Speed built for the backfield</h2>
+  <p class="lede">Since the start of 2025, Williams has reached 20+ mph as a ball carrier seven times. All other NFL quarterbacks combined have five.</p>
+  <div class="split">
+    <div class="gauge">
+      <div class="toggle" role="group" aria-label="Run">
+        <button data-mph="20.80" data-note="29-yard scramble TD at Carolina, Week 1 2026. Second-fastest speed of his career, and the fastest run by any QB that week." aria-pressed="true">29-yd TD run</button>
+        <button data-mph="20.35" data-note="9-yard scramble TD at Carolina, Week 1 2026. At the time, the third-fastest QB speed since 2025. He owned the top two." aria-pressed="false">9-yd TD run</button>
+      </div>
+      <svg viewBox="0 0 520 300" role="img" aria-label="Speedometer">
+        <path d="M40 260 A220 220 0 0 1 480 260" fill="none" stroke="#23395C" stroke-width="26"/>
+        <path id="redzone" fill="none" stroke="#C83803" stroke-width="26"/>
+        <g id="ticks"></g>
+        <line id="needle" x1="260" y1="260" x2="260" y2="70" stroke="#E9EDF2" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="260" cy="260" r="14" fill="#C83803"/>
+      </svg>
+      <div class="gauge-read"><span id="mph">20.80</span> <small>mph</small></div>
+      <p id="mphNote" style="max-width:48ch"></p>
+    </div>
+    <div>
+      <h3>QB runs at 20+ mph since 2025</h3>
+      <div class="versus">
+        <div><span style="height:168px"></span><strong>7</strong><br><small>Williams</small></div>
+        <div class="them"><span style="height:120px"></span><strong>5</strong><br><small>Every other QB combined</small></div>
+      </div>
+      <h3 style="margin-top:52px">Runs at 20+ mph in 2025, all players</h3>
+      <div class="bars">
+        <div class="bar"><span>Keaton Mitchell</span><i><b style="width:100%"></b></i><span>7</span></div>
+        <div class="bar"><span>Jonathan Taylor</span><i><b style="width:85.7%"></b></i><span>6</span></div>
+        <div class="bar"><span>Jahmyr Gibbs</span><i><b style="width:85.7%"></b></i><span>6</span></div>
+        <div class="bar me"><span>Caleb Williams</span><i><b style="width:71.4%"></b></i><span>5</span></div>
+      </div>
+      <p style="color:var(--steel);font-size:15px">Only three players in the league, all running backs, had more. No other quarterback had more than two since the start of 2025.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="arm"><div class="wrap">
+  <h2>Measured in air yards</h2>
+  <p class="lede">Next Gen Stats tracks how far the ball actually travels. Select a throw to draw it on the field.</p>
+  <div class="toggle" role="group" aria-label="Throw" id="throwPick"></div>
+  <div class="field"><svg viewBox="0 0 1000 260" id="fieldSvg" role="img" aria-label="Air distance on a football field"></svg></div>
+  <div class="throw-detail">
+    <strong id="airNum">62.1<small> yds</small></strong>
+    <div><h3 id="airTitle"></h3><p id="airNote" style="margin:6px 0 0;max-width:60ch"></p></div>
+  </div>
+</div></section>
+
+<section id="improbable"><div class="wrap">
+  <h2>Throws that shouldn't work</h2>
+  <p class="lede">Completion probability estimates how often an average NFL throw in the same situation gets caught. Each dot is one of 100 tries.</p>
+  <div class="split">
+    <div>
+      <div class="toggle" role="group" aria-label="Improbable throw" id="probPick"></div>
+      <div class="prob"><span id="probNum">16.1</span><small style="font-size:40px">%</small></div>
+      <h3 id="probTitle" style="margin-top:10px"></h3>
+      <p id="probNote" style="max-width:52ch"></p>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </div>
+</div></section>
+
+<section id="clutch"><div class="wrap">
+  <h2>Kings of the comeback</h2>
+  <p class="lede">Six fourth-quarter comebacks in 2025 led the NFL and tied Peyton Manning for the most in a season by a player under 25. Seven counting the playoffs.</p>
+  <div class="clutch">
+    <article>
+      <h3>Wild Card vs. Green Bay</h3>
+      <div class="wp">3.0%</div>
+      <div class="wpbar"><b style="width:3%"></b></div>
+      <p>Chicago's lowest win probability. From late in the second quarter until 2:59 remained, it never climbed above 25%. Williams threw for 361 yards, a Bears playoff record, and the Bears won 31-27 after trailing 21-3 at half.</p>
+    </article>
+    <article>
+      <h3>Week 16 vs. Green Bay</h3>
+      <div class="wp">3%</div>
+      <div class="wpbar"><b style="width:3%"></b></div>
+      <p>Down 16-6 with 5:03 left. He forced overtime and won it on a 46-yard TD to DJ Moore, later named Next Gen Stats Moment of the Year.</p>
+    </article>
+    <article>
+      <h3>Week 9 at Cincinnati</h3>
+      <div class="wp">+58.7</div>
+      <div class="wpbar"><b style="width:98.5%"></b></div>
+      <p>His 58-yard TD to Colston Loveland with 17 seconds left moved win probability from 39.8% to 98.5%, the second-biggest single-play swing of the season.</p>
+    </article>
+  </div>
+  <div class="photos-row">
+    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="DJ Moore catch highlight"><source src="assets/dj_catch.mp4" type="video/mp4"></video></figure>
+    <figure class="photo has-img media"><video autoplay muted loop playsinline preload="auto" aria-label="Williams touchdown play"><source src="assets/CL_TD.mp4" type="video/mp4"></video></figure>
+  </div>
+</div></section>
+
+<section id="watch"><div class="wrap">
+  <h2>Watch the plays</h2>
+  <p class="lede">The throws, the scrambles and the comebacks, right here on the page. Pick any clip from the reel, or hit play and let them run.</p>
+  <div class="theater">
+    <div class="screen">
+      <div id="ytPlayer"></div>
+      <div class="yt-msg" id="ytMsg" hidden></div>
+    </div>
+    <div>
+      <div class="now" aria-live="polite">
+        <small id="clipCount">Loading the playlist</small>
+        <h3 id="clipTitle"></h3>
+      </div>
+      <div class="controls">
+        <button id="ytPrev">Previous clip</button>
+        <button id="ytPlay" class="primary">Play</button>
+        <button id="ytNext">Next clip</button>
+        <button id="ytShuffle" aria-pressed="false">Shuffle</button>
+        <button id="ytLoop" aria-pressed="true">Repeat playlist</button>
+      </div>
+      <ol class="reel" id="reel" aria-label="Clips in the playlist"></ol>
+    </div>
+  </div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+  <h2>How it happened</h2>
+  <p class="lede">The moments in order. Open any entry for the details.</p>
+  <ol class="timeline" id="tl"></ol>
+</div></section>
+
+<section id="honors"><div class="wrap">
+  <h2>Honors and recognition</h2>
+  <p class="lede">What the league, the players and the community have said with awards.</p>
+  <div class="honors">
+    <div><h3>Madden NFL 27 cover</h3><p>The first player in Bears history on a standard Madden cover, entering 2026 rated 90 overall.</p></div>
+    <div><h3>NFL Top 100: No. 51</h3><p>Voted by fellow players in his debut on the list, the highest ranking ever for a Bears quarterback.</p></div>
+    <div><h3>NGS Moment of the Year</h3><p>The overtime walk-off to DJ Moore against Green Bay, honored at NFL Honors in February 2026.</p></div>
+    <div><h3>NFC Offensive Player of the Week</h3><p>Week 3, 2025 vs. Dallas: 298 yards, 4 TDs, no sacks, and a career-best 142.6 rating.</p></div>
+    <div><h3>NFLPA Community MVP</h3><p>Recognized for the Caleb Cares Foundation, which brings dozens of Chicago kids to every home game.</p></div>
+    <div><h3>NFC North champions</h3><p>11-6 in 2025, the division title and the Bears' first playoff win since the 2010 season.</p></div>
+  </div>
+
+  <div class="quotes" style="margin-top:90px">
+    <blockquote>"He rises to the occasion time and time again."<cite>Ben Johnson, Bears head coach</cite></blockquote>
+    <blockquote>"The best throw until he makes the next best throw."<cite>Rome Odunze, on the 4th-and-8 Wild Card throw</cite></blockquote>
+    <blockquote>"This is absolutely one of the great throws in NFL history."<cite>Dan Orlovsky, ESPN</cite></blockquote>
+    <blockquote>"You won't outrun me during the game. So just run."<cite>Williams, to Luther Burden III before the 62.1-air-yard TD</cite></blockquote>
+  </div>
+
+  <div class="honest">
+    <h3 style="font-size:24px">Room to grow</h3>
+    <p style="margin:6px 0 0">His 58.1% completion rate in 2025 ranked near the bottom of the league. Part of that was on his receivers: Next Gen Stats had him losing more passing yards to drops than any other QB, enough to have made him Chicago's first 4,000-yard passer.</p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p>Unofficial fan tribute. Not affiliated with or endorsed by the Chicago Bears or the NFL. Stats current through Week 1 of the 2026 season.</p>
+  <p>*Among quarterbacks with at least 1,000 career pass attempts.</p>
+  <h3 style="font-size:24px;color:var(--chalk);margin-top:24px">Sources</h3>
+  <ul>
+    <li><a href="https://www.pro-football-reference.com/players/W/WillCa03.htm">Pro Football Reference</a></li>
+    <li><a href="https://x.com/NextGenStats/status/2099208131519848730">Next Gen Stats: 20.80 mph run</a></li>
+    <li><a href="https://x.com/NextGenStats/status/2099189799844561070">Next Gen Stats: 20.35 mph run</a></li>
+    <li><a href="https://x.com/NextGenStats/status/1969869255970844753">Next Gen Stats: 62.1-yard throw</a></li>
+    <li><a href="https://x.com/NextGenStats/status/2013079442848092520">Next Gen Stats: Kmet red zone throw</a></li>
+    <li><a href="https://x.com/NextGenStats/status/2002600990726631831">Next Gen Stats: Moore walk-off</a></li>
+    <li><a href="https://www.nfl.com/news/packers-bears-on-wild-card-weekend-saturday-what-we-learned-chicago-win">NFL.com: Wild Card recap</a></li>
+    <li><a href="https://www.espn.com/nfl/story/_/id/47531020/nfl-next-gen-fastest-longest-plays-aaron-rodgers-caleb-williams">ESPN: Fastest, longest, most improbable plays of 2025</a></li>
+    <li><a href="https://africa.espn.com/nfl/story/_/id/47316876/caleb-williams-drake-maye-matthew-stafford-wildest-plays-week-15">ESPN: Week 15 Next Gen plays</a></li>
+    <li><a href="https://www.espn.com/nfl/story/_/id/47621609/broncos-bills-patriots-bears-rams-texans-seahawks-49ers">ESPN: Divisional round NGS intel</a></li>
+    <li><a href="https://www.cbsnews.com/chicago/news/bears-next-gen-stats-moment-of-the-year-dj-moore-caleb-williams-touchdown-packers/">CBS Chicago: NGS Moment of the Year</a></li>
+    <li><a href="https://sports.yahoo.com/articles/10-years-nfl-next-gen-031557537.html">AP: 10 years of Next Gen Stats</a></li>
+    <li><a href="https://www.si.com/nfl/bears/onsi/caleb-williams-rockets-up-the-speed-charts-after-only-one-week">SI: Speed charts after Week 1</a></li>
+    <li><a href="https://www.chicagobears.com/news/bears-qb-caleb-williams-continues-to-perform-at-his-best-in-clutch-situations">ChicagoBears.com: Clutch performances</a></li>
+    <li><a href="https://chicago.suntimes.com/bears/2026/09/13/bears-inactives-vs-panthers-for-week-1-backup-qb-tyson-bagent-inactive-but-designated-as-emergency-3rd-qb">Chicago Sun-Times: 59-37 opener</a></li>
+  </ul>
+</div></footer>
+<input type="file" accept="image/*" id="filePick" hidden>
+<script>
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+function pressGroup(btns, active){ btns.forEach(b => b.setAttribute('aria-pressed', b === active ? 'true' : 'false')); }
+
+/* ---------- The leap ---------- */
+const seasons = {
+  "2024": { cells:[["5-12","Team record"],["3,541","Passing yards"],["20","Passing TDs"],["6","Interceptions"],["87.8","Passer rating"],["68","Sacks taken"],["32nd","Offense rank, total yards"],["489","Rushing yards"]],
+    note:"Rookie year: Bears rookie records for yards, TDs, completions and rating, plus an NFL rookie-record 353 straight passes without an interception. All behind a line that allowed the third-most sacks in league history." },
+  "2025": { up:[0,1,2,4,5,6], cells:[["11-6","Team record"],["3,942","Passing yards"],["27","Passing TDs"],["7","Interceptions"],["90.1","Passer rating"],["24","Sacks taken"],["6th","Offense rank, total yards"],["388","Rushing yards"]],
+    note:"Year one under Ben Johnson: a franchise passing record, 30 total touchdowns, the NFC North title, and the largest single-season drop in sack rate by any QB since the 1970 merger (10.8% to 4.1%)." },
+  "2026": { up:[0,1,2,3,4,5,6,7], cells:[["1-0","Team record"],["269","Passing yards"],["4","Total TDs"],["72.4%","Completion rate"],["124.1","Passer rating"],["65","Rushing yards"],["59","Team points, a Bears opener record"],["552","Team yards, a franchise record"]],
+    note:"59-37 at Carolina, the highest-scoring Week 1 game in NFL history. Williams became the first Bears QB with 200+ passing yards, 2+ passing TDs, 50+ rushing yards and 2+ rushing TDs in one game." }
+};
+function showSeason(key){
+  const s = seasons[key];
+  $('#leapGrid').innerHTML = s.cells.map((c,i)=>`<div class="${(s.up||[]).includes(i)?'up':''}"><strong>${c[0]}</strong><small>${c[1]}</small></div>`).join('');
+  $('#leapNote').textContent = s.note;
+}
+$$('[data-season]').forEach(b => b.addEventListener('click', () => { pressGroup($$('[data-season]'), b); showSeason(b.dataset.season); }));
+showSeason("2025");
+
+/* ---------- Record book ---------- */
+const records = [
+  ["3,942","Most passing yards in a season, Bears history","Broke Erik Kramer's 3,838 from 1995, on a TD to Jahdae Walker in Week 18 of 2025.","bears"],
+  ["1.2%","Lowest career interception rate in NFL history","Among all quarterbacks with 1,000+ pass attempts.","nfl"],
+  ["12","Fewest interceptions through a QB's first 1,000 attempts","An NFL record, set during the 2025 season.","nfl"],
+  ["353","Consecutive passes without an interception as a rookie","NFL rookie record (2024), fourth-longest single-season streak ever.","nfl"],
+  ["23","Games without an interception through two seasons","The most by any quarterback in his first two NFL seasons.","nfl"],
+  ["6","Fourth-quarter comebacks in 2025","Led the NFL and tied Peyton Manning for the most in a season by a player under 25.","nfl"],
+  ["1st","275 passing, 50 rushing and 20 receiving yards in one game","First player in NFL history to do it: 280/53/22 at Cincinnati, Nov. 2, 2025.","nfl"],
+  ["10.8→4.1","Sack rate, 2024 to 2025","Largest single-season sack-rate improvement by any QB since the 1970 merger.","nfl"],
+  ["96","Combined points in the 2026 opener","Highest-scoring Week 1 game in NFL history (Bears 59, Panthers 37).","nfl"],
+  ["4,030","Pass plus rush yards as a rookie","Most combined yards by any Bears player in a season (2024).","bears"],
+  ["20","Passing TDs as a rookie","Bears rookie records in 2024 also include 3,541 yards, 351 completions, 62.5% and an 87.8 rating.","bears"],
+  ["363","Passing yards at Indianapolis, 2024","Bears rookie single-game record.","bears"],
+  ["6","Game-winning drives in 2025","Bears single-season record in the merger era.","bears"],
+  ["8","Straight games with 2+ passing TDs","Bears record including playoffs, extended in the 2026 opener.","bears"],
+  ["59","Points in a season opener","Bears record, breaking a mark that stood since 1948. The 552 yards were also a franchise record.","bears"],
+  ["35","Consecutive regular-season starts","Every game since his debut. First Bears QB to start every game in back-to-back seasons since 1978.","bears"],
+  ["361","Passing yards in the Wild Card win","Bears postseason record, and the most in a playoff debut since Matthew Stafford in 2011.","playoffs"],
+  ["21-3","Halftime deficit overcome vs. Green Bay","Largest playoff comeback in Bears history, and their first playoff win since the 2010 season.","playoffs"],
+  ["6","Big-time throws in the Wild Card game","Third-most in a playoff game since PFF began grading. His 4th-and-8 throw to Rome Odunze was the top-graded QB play of the weekend.","playoffs"],
+  ["51.2","Air yards on the Divisional round TD to Cole Kmet","Longest completed red zone pass by air distance in the Next Gen Stats era (since 2016).","ngs"],
+  ["26.5","Yards behind the line on that same throw","Four yards deeper than any other completed pass on record.","ngs"],
+  ["62.1","Air yards to Luther Burden III, Week 3, 2025","Longest completion in the NFL at that point of the season, and the longest of his career.","ngs"],
+  ["7 vs 5","QB runs at 20+ mph since 2025","Williams alone versus every other quarterback combined.","ngs"],
+  ["16.1%","Completion probability, TD to DJ Moore vs. Cleveland","Most improbable completion by a Bears QB since 2021.","ngs"],
+  ["17","TD passes against the blitz in 2025","Second in the NFL.","ngs"],
+  ["370","Passing yards lost to drops in 2025 (through Week 17)","Most in the NFL, per Next Gen Stats. Enough for Chicago's first 4,000-yard season.","ngs"]
+];
+const tagName = {bears:"Bears history", nfl:"NFL history", playoffs:"Playoffs", ngs:"Next Gen Stats"};
+$('#recList').innerHTML = records.map(r => `<li data-cat="${r[3]}"><strong>${r[0]}</strong><span class="tag">${tagName[r[3]]}</span><h3 style="font-size:24px;margin-top:6px">${r[1]}</h3><p>${r[2]}</p></li>`).join('');
+$$('#recFilter button').forEach(b => b.addEventListener('click', () => {
+  pressGroup($$('#recFilter button'), b);
+  $$('#recList li').forEach(li => li.hidden = !(b.dataset.f === 'all' || li.dataset.cat === b.dataset.f));
+}));
+
+/* ---------- Speed gauge ---------- */
+const MAX = 22, cx = 260, cy = 260, R = 220;
+const ang = v => Math.PI * (1 - v / MAX);
+const pt = (v, r) => [cx + r * Math.cos(ang(v)), cy - r * Math.sin(ang(v))];
+(function drawGauge(){
+  const a = pt(20, R), b = pt(22, R);
+  $('#redzone').setAttribute('d', `M${a[0]} ${a[1]} A${R} ${R} 0 0 1 ${b[0]} ${b[1]}`);
+  let t = '';
+  for (let v = 0; v <= MAX; v += 2){
+    const [x1,y1] = pt(v, R - 20), [x2,y2] = pt(v, R - 36), [lx,ly] = pt(v, R - 58);
+    t += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#8A97AB" stroke-width="2"/>`;
+    t += `<text x="${lx}" y="${ly+6}" fill="#8A97AB" font-size="16" text-anchor="middle" font-family="Public Sans">${v}</text>`;
+  }
+  $('#ticks').innerHTML = t;
+})();
+function setSpeed(btn){
+  const v = parseFloat(btn.dataset.mph);
+  $('#needle').style.transform = `rotate(${(v / MAX) * 180 - 90}deg)`;
+  $('#mph').textContent = v.toFixed(2);
+  $('#mphNote').textContent = btn.dataset.note;
+}
+const mphBtns = $$('[data-mph]');
+mphBtns.forEach(b => b.addEventListener('click', () => { pressGroup(mphBtns, b); setSpeed(b); }));
+$('#needle').style.transform = 'rotate(-90deg)';
+requestAnimationFrame(() => requestAnimationFrame(() => setSpeed(mphBtns[0])));
+
+/* ---------- Air yards field ---------- */
+const throws = [
+  {d:62.1, label:"Burden, 62.1", title:"65-yard TD to Luther Burden III, Week 3, 2025 vs. Dallas", note:"The longest completion in the NFL at that point of the season and the longest of his career. What he told the rookie before the play: you won't outrun my arm, so just run."},
+  {d:56.9, label:"Moore, 56.9", title:"46-yard overtime walk-off to DJ Moore, Week 16, 2025 vs. Green Bay", note:"The most air distance on any walk-off TD that season and second-most in 10 seasons. Moore had 0.6 yards of separation. Named Next Gen Stats Moment of the Year."},
+  {d:51.2, label:"Kmet, 51.2", title:"14-yard game-tying TD to Cole Kmet, Divisional round vs. the Rams", note:"The longest completed red zone pass by air distance since tracking began in 2016. He launched it from 26.5 yards behind the line of scrimmage with a 17.8% completion probability."}
+];
+const X0 = 50, X1 = 950, YMAX = 65, base = 225;
+const xFor = y => X0 + (y / YMAX) * (X1 - X0);
+function drawField(active){
+  let s = '';
+  for (let y = 0; y <= YMAX; y += 5){
+    const x = xFor(y);
+    s += `<line x1="${x}" y1="20" x2="${x}" y2="245" stroke="rgba(255,255,255,${y%10===0?.45:.2})" stroke-width="2"/>`;
+    if (y % 10 === 0) s += `<text x="${x}" y="252" fill="rgba(255,255,255,.6)" font-size="15" text-anchor="middle" font-family="Big Shoulders Display" font-weight="700">${y}</text>`;
+  }
+  throws.forEach((t, i) => {
+    const x = xFor(t.d), peak = base - 40 - t.d * 2.6;
+    s += `<path class="arc ${i===active?'on':''}" id="arc${i}" d="M${X0} ${base} Q${(X0+x)/2} ${peak} ${x} ${base}"/>`;
+    s += `<circle cx="${x}" cy="${base}" r="${i===active?9:6}" fill="${i===active?'#F05A1E':'rgba(255,255,255,.5)'}"/>`;
+  });
+  s += `<text x="${X0+6}" y="40" fill="rgba(255,255,255,.7)" font-size="14" font-family="Public Sans">Release point</text>`;
+  $('#fieldSvg').innerHTML = s;
+  const arc = $('#arc' + active);
+  if (arc && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const len = arc.getTotalLength();
+    arc.style.strokeDasharray = len; arc.style.strokeDashoffset = len;
+    arc.getBoundingClientRect();
+    arc.style.transition = 'stroke-dashoffset .9s ease-out'; arc.style.strokeDashoffset = 0;
+  }
+  const t = throws[active];
+  $('#airNum').innerHTML = `${t.d}<small> yds</small>`;
+  $('#airTitle').textContent = t.title;
+  $('#airNote').textContent = t.note;
+}
+$('#throwPick').innerHTML = throws.map((t,i)=>`<button aria-pressed="${i===0}" data-i="${i}">${t.label} air yds</button>`).join('');
+$$('#throwPick button').forEach(b => b.addEventListener('click', () => { pressGroup($$('#throwPick button'), b); drawField(+b.dataset.i); }));
+drawField(0);
+
+/* ---------- Completion probability ---------- */
+const probs = [
+  {p:16.1, label:"Moore vs. Cleveland", title:"22-yard TD to DJ Moore, Week 15, 2025", note:"Rolled right to the sideline, held the ball 4.72 seconds, and fired it into 0.7 yards of separation. The most improbable completion by a Bears QB since 2021. \"I can make any throw,\" he said after."},
+  {p:16.9, label:"Zaccheaus vs. Green Bay", title:"1-yard TD to Olamide Zaccheaus, December 2025", note:"Flushed right with Micah Parsons inches from his face, he threw off one foot into a tight window in the corner of the end zone."},
+  {p:17.8, label:"Kmet vs. the Rams", title:"14-yard TD to Cole Kmet, Divisional round", note:"Fourth down, season on the line, retreating under pressure. The ball traveled 51.2 yards in the air to tie the game with 18 seconds left."}
+];
+$('#dots').innerHTML = '<span></span>'.repeat(100);
+function showProb(i){
+  const pr = probs[i], n = Math.round(pr.p);
+  $('#probNum').textContent = pr.p;
+  $('#probTitle').textContent = pr.title;
+  $('#probNote').textContent = pr.note;
+  $$('#dots span').forEach((d, k) => d.classList.toggle('hit', k < n));
+}
+$('#probPick').innerHTML = probs.map((p,i)=>`<button aria-pressed="${i===0}" data-i="${i}">${p.label}</button>`).join('');
+$$('#probPick button').forEach(b => b.addEventListener('click', () => { pressGroup($$('#probPick button'), b); showProb(+b.dataset.i); }));
+showProb(0);
+
+/* ---------- Timeline ---------- */
+const tl = [
+  ["April 25, 2024","Drafted first overall","The Bears select Williams No. 1 in the 2024 NFL Draft.","His draft-night jersey sales set a record."],
+  ["Sept. 8, 2024","Wins his first start","A season-opening win over Tennessee.","First Bears rookie QB to win an opener since at least 1950."],
+  ["Oct. 13, 2024","Four TDs in London","35-16 over Jacksonville: 23-of-29, 226 yards, 4 TDs, 56 rushing yards.","Career highs in success rate (58.8%) and completion % over expected (+12.5%), per Next Gen Stats. He went 13-of-14 on quick passes for 3 TDs."],
+  ["Jan. 5, 2025","First game-winning drive","Sets up a 51-yard walk-off field goal to win 24-22 at Green Bay.","Finishes the rookie year with a record 353 straight passes without an interception along the way."],
+  ["Sept. 21, 2025","The breakout","31-14 over Dallas: 298 yards, 4 TDs, a 142.6 rating, and a 65-yard TD that traveled 62.1 yards in the air.","Earns NFC Offensive Player of the Week, the first for a Bears QB since 2022."],
+  ["Nov. 2, 2025","47-42 at Cincinnati","Throws the winning 58-yard TD to Colston Loveland with 17 seconds left.","Also catches a TD pass and becomes the first player ever with 275 passing, 50 rushing and 20 receiving yards in a game."],
+  ["Week 16, 2025","Overtime walk-off","From a 3% win probability to a 46-yard TD to DJ Moore in overtime.","The only Bears QB ever to throw a TD in the final 30 seconds of regulation and in overtime of the same game."],
+  ["Week 18, 2025","Franchise passing record","Passes Erik Kramer's 30-year-old mark and finishes with 3,942 yards.","Bears finish 11-6 as NFC North champions."],
+  ["Jan. 10, 2026","The Wild Card comeback","Down 21-3 at half to Green Bay, wins 31-27 with a Bears playoff-record 361 yards.","Includes the leaping 4th-and-8 throw to Rome Odunze. His seventh fourth-quarter comeback of the season."],
+  ["Jan. 18, 2026","The throw from 26.5 yards back","Ties the Rams with 18 seconds left on a fourth-down TD to Cole Kmet.","The Bears fall in overtime to the eventual Super Bowl champions, but the throw sets a Next Gen Stats record."],
+  ["Feb. 5, 2026","NFL Honors","The Moore overtime TD is named Next Gen Stats Moment of the Year.","DJ Moore accepts the award and honors the late Virginia McCaskey."],
+  ["Summer 2026","Cover star and Top 100","First Bears player on a standard Madden cover and No. 51 on the NFL Top 100.","The highest Top 100 ranking ever for a Bears quarterback."],
+  ["Sept. 13, 2026","59 points","Four total TDs in a 59-37 win at Carolina, including runs at 20.35 and 20.80 mph.","The highest-scoring Week 1 game in NFL history."]
+];
+$('#tl').innerHTML = tl.map((t,i)=>`<li><time>${t[0]}</time><h3>${t[1]}</h3><p>${t[2]}</p><button aria-expanded="false" aria-controls="m${i}">Show details</button><p class="more" id="m${i}">${t[3]}</p></li>`).join('');
+$$('#tl button').forEach(b => b.addEventListener('click', () => {
+  const li = b.closest('li'), open = li.classList.toggle('open');
+  b.setAttribute('aria-expanded', open); b.textContent = open ? 'Hide details' : 'Show details';
+}));
+
+/* ---------- Photo slots ---------- */
+let currentSlot = null;
+$$('.photo:not(.media)').forEach(fig => {
+  const img = $('img', fig);
+  const mark = () => fig.classList.toggle('has-img', img.complete && img.naturalWidth > 0);
+  img.addEventListener('load', mark); img.addEventListener('error', () => fig.classList.remove('has-img')); mark();
+  fig.tabIndex = 0; fig.setAttribute('role','button'); fig.setAttribute('aria-label','Choose a photo');
+  const pick = () => { currentSlot = fig; $('#filePick').click(); };
+  fig.addEventListener('click', pick);
+  fig.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+});
+$('#filePick').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f || !currentSlot) return;
+  const r = new FileReader();
+  r.onload = () => { $('img', currentSlot).src = r.result; };
+  r.readAsDataURL(f); e.target.value = '';
+});
+
+
+/* ---------- YouTube shorts player ---------- */
+// Your playlist ID: the part after "list=" in the YouTube link.
+const PLAYLIST_ID = "PLSeoUv4CwL5w";
+const FIRST_VIDEO = "Qa0PXSLsopQ";
+let yt, ytIds = [], ytPlaying = false;
+const ytMsg = (title, body) => { const m = $('#ytMsg'); m.innerHTML = `<strong>${title}</strong><p>${body}</p>`; m.hidden = false; };
+window.onYouTubeIframeAPIReady = () => {
+  yt = new YT.Player('ytPlayer', {
+    videoId: FIRST_VIDEO,
+    playerVars: { listType: 'playlist', list: PLAYLIST_ID, playsinline: 1, rel: 0, modestbranding: 1 },
+    events: {
+      onReady: () => { yt.setLoop(true); waitForList(0); },
+      onStateChange: e => {
+        ytPlaying = e.data === YT.PlayerState.PLAYING;
+        $('#ytPlay').textContent = ytPlaying ? 'Pause' : 'Play';
+        updateNow();
+      },
+      onError: e => {
+        const c = e.data;
+        if (c === 2) ytMsg('Playlist not found', 'Check the playlist ID at the top of the YouTube section in the page code. It should be the full value after "list=" in your link.');
+        else if (c === 100) ytMsg('Clip unavailable', 'This video was removed or set to private. Skipping to the next clip.'), setTimeout(() => yt.nextVideo(), 2500);
+        else if (c === 101 || c === 150) ytMsg('Embedding is turned off', 'The owner of this clip doesn\'t allow it to play on other sites. Skipping to the next clip.'), setTimeout(() => yt.nextVideo(), 2500);
+        else ytMsg('The player couldn\'t load', 'YouTube videos only play when this page is opened from a website address, not as a file on your computer. Upload the page to a host like your Squarespace site, Netlify or GitHub Pages.');
+      }
+    }
+  });
+};
+function waitForList(tries){
+  const list = yt.getPlaylist && yt.getPlaylist();
+  if (list && list.length){ ytIds = list; buildReel(); updateNow(); return; }
+  if (tries < 30) setTimeout(() => waitForList(tries + 1), 300);
+  else $('#clipCount').textContent = 'Press play to start the playlist';
+}
+function buildReel(){
+  $('#reel').innerHTML = ytIds.map((id, i) =>
+    `<li><button data-i="${i}" aria-label="Play clip ${i+1}"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"><span>${i+1}</span></button></li>`).join('');
+  $$('#reel button').forEach(b => b.addEventListener('click', () => { $('#ytMsg').hidden = true; yt.playVideoAt(+b.dataset.i); }));
+}
+function updateNow(){
+  if (!yt || !yt.getPlaylistIndex) return;
+  const i = yt.getPlaylistIndex();
+  const data = yt.getVideoData ? yt.getVideoData() : {};
+  if (ytIds.length && i >= 0) $('#clipCount').textContent = `Clip ${i+1} of ${ytIds.length}`;
+  $('#clipTitle').textContent = (data && data.title) || '';
+  $$('#reel button').forEach(b => b.setAttribute('aria-current', +b.dataset.i === i ? 'true' : 'false'));
+  const cur = $('#reel button[aria-current="true"]');
+  if (cur) cur.scrollIntoView({block:'nearest', inline:'nearest'});
+}
+$('#ytPlay').addEventListener('click', () => { if (!yt) return; $('#ytMsg').hidden = true; ytPlaying ? yt.pauseVideo() : yt.playVideo(); });
+$('#ytNext').addEventListener('click', () => { $('#ytMsg').hidden = true; yt && yt.nextVideo(); });
+$('#ytPrev').addEventListener('click', () => { $('#ytMsg').hidden = true; yt && yt.previousVideo(); });
+$('#ytShuffle').addEventListener('click', e => {
+  if (!yt) return;
+  const on = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+  e.currentTarget.setAttribute('aria-pressed', on); yt.setShuffle(on);
+  setTimeout(() => { ytIds = yt.getPlaylist() || ytIds; buildReel(); updateNow(); }, 400);
+});
+$('#ytLoop').addEventListener('click', e => {
+  if (!yt) return;
+  const on = e.currentTarget.getAttribute('aria-pressed') !== 'true';
+  e.currentTarget.setAttribute('aria-pressed', on); yt.setLoop(on);
+});
+setTimeout(() => { if (!yt) ytMsg('Clips are offline', 'The YouTube player couldn\'t be reached. Check your internet connection and reload the page.'); }, 10000);
+(function loadYT(){ const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s); })();
+</script>
+</html>
